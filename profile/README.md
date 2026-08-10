@@ -2,16 +2,54 @@
   <img src="assets/hero.svg" alt="UnblockingAPI — One API call. Clean HTML back. A terminal shows GET /unblock returning 200 OK where a 403 used to be." width="100%">
 </a>
 
-**We build the API and tools that get developers and AI agents past bot walls, CAPTCHAs and JS-heavy pages** — clean HTML back, no proxy dashboards or browser farms to manage.
+**Send a public URL, get clean HTML back.** We handle browser rendering, country routing, retries and anti-bot handling — so you don't manage proxies, browser farms or credit calculators.
 
-🌐 [unblockingapi.com](https://unblockingapi.com) · 📖 [API docs](https://unblockingapi.com/docs) · 🔒 [Security & data handling](https://unblockingapi.com/security) · ✉️ [hello@unblockingapi.com](mailto:hello@unblockingapi.com)
+🌐 [unblockingapi.com](https://unblockingapi.com) · 📖 [API docs](https://unblockingapi.com/docs) · 💰 [Pricing](https://unblockingapi.com/pricing) · 🔒 [Security](https://unblockingapi.com/security) · ✉️ [hello@unblockingapi.com](mailto:hello@unblockingapi.com)
 
-## What we build
+## Try it
 
-| | |
-|---|---|
-| **[`mcp`](https://github.com/unblockingapi/mcp)** [![npm](https://img.shields.io/npm/v/%40unblockingapi%2Fmcp?color=ff2d78&label=npm)](https://www.npmjs.com/package/@unblockingapi/mcp) | Official MCP server — gives Claude, Cursor and other AI agents the ability to fetch bot-protected pages and run structured searches through UnblockingAPI. `npx -y @unblockingapi/mcp` |
-| **[`unblocked-app`](https://github.com/unblockingapi/unblocked-app)** | Free desktop app — a local browser-rendering API and MCP server that runs on your own machine and IP. [Download](https://unblockingapi.com/tools) |
+Every account starts with **1,000 free requests** — no credit card. [Get your API key →](https://unblockingapi.com)
+
+```bash
+curl -H "X-Api-Key: YOUR_API_KEY" \
+  "https://api.unblockingapi.com/unblock?url=https://example.com"
+```
+
+JavaScript-heavy page? Add `render=true` and it goes through a real stealth browser. Pick a country with `location`:
+
+```bash
+curl -H "X-Api-Key: YOUR_API_KEY" \
+  "https://api.unblockingapi.com/unblock?url=https://example.com&render=true&location=se"
+```
+
+Every response has the same predictable shape:
+
+```json
+{
+  "status": "succeeded",
+  "http_response_code": 200,
+  "response_time_ms": 1250,
+  "location": "se",
+  "response_format": "html",
+  "response": "<!doctype html>..."
+}
+```
+
+Or from code:
+
+```js
+const res = await fetch(
+  "https://api.unblockingapi.com/unblock?url=https://example.com&render=true",
+  { headers: { "X-Api-Key": process.env.UNBLOCKINGAPI_KEY } }
+);
+const { response: html } = await res.json();
+```
+
+More in the [API docs](https://unblockingapi.com/docs): POST requests, wait strategies for dynamic pages, structured template endpoints, and error codes.
+
+## Using AI tools?
+
+Give your agent the same superpower: `npx -y @unblockingapi/mcp` connects Claude, Cursor and any MCP client to the API — or grab [Unblocked](https://unblockingapi.com/tools), our free desktop app that renders blocked pages locally on your own IP.
 
 ## Elsewhere
 
