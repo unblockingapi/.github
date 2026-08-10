@@ -54,6 +54,3 @@ Give your agent the same superpower: `npx -y @unblockingapi/mcp` connects Claude
 ## Elsewhere
 
 [X](https://x.com/unblockingapi) · [Reddit](https://www.reddit.com/user/UnblockingAPI/) · [Product Hunt](https://www.producthunt.com/products/unblockingapi)
-
----
-Built by [WK Operations Ltd](https://unblockingapi.com), Malta 🇲🇹
