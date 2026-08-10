@@ -1,0 +1,117 @@
+<svg width="1200" height="300" viewBox="0 0 1200 300" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="UnblockingAPI — One API call. Clean HTML back. A terminal shows GET /unblock returning 200 OK where a 403 used to be.">
+  <!-- Brand tokens from unblockingapi-com DESIGN.md / ads.css. The animation
+       mirrors ads/motion.css: type request → 403 slams in → rosa strike →
+       ✓ 200 OK → payload streams. One 7.5s cycle, loops forever. -->
+  <style>
+    .sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", sans-serif; }
+    .mono { font-family: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace; }
+
+    @keyframes type { 0%, 8% { transform: translateX(0); } 28%, 100% { transform: translateX(196px); } }
+    .type-cover { animation: type 7.5s steps(20, end) infinite; }
+
+    @keyframes caret {
+      0%, 3% { opacity: 0; }
+      4%, 29% { opacity: 1; }
+      30%, 100% { opacity: 0; }
+    }
+    .caret { animation: caret 7.5s steps(1, end) infinite; }
+    @keyframes caret-ride { 0%, 8% { transform: translateX(0); } 28%, 100% { transform: translateX(178px); } }
+    .caret-ride { animation: caret-ride 7.5s steps(20, end) infinite; }
+
+    @keyframes denied {
+      0%, 31% { opacity: 0; transform: translateY(-6px); }
+      35%, 96% { opacity: 0.75; transform: translateY(0); }
+      100% { opacity: 0; }
+    }
+    .denied { animation: denied 7.5s ease-out infinite; }
+
+    @keyframes strike {
+      0%, 40% { transform: rotate(-2.5deg) scaleX(0); }
+      45%, 96% { transform: rotate(-2.5deg) scaleX(1); }
+      100% { transform: rotate(-2.5deg) scaleX(0); }
+    }
+    .strike { animation: strike 7.5s cubic-bezier(0.4, 0, 0.2, 1) infinite; transform-origin: 724px 130px; }
+
+    @keyframes ok {
+      0%, 47% { opacity: 0; transform: translateY(5px); }
+      52%, 96% { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; }
+    }
+    .ok { animation: ok 7.5s cubic-bezier(0.34, 1.4, 0.64, 1) infinite; }
+
+    @keyframes payload { 0%, 55% { transform: translateX(0); } 68%, 100% { transform: translateX(400px); } }
+    .payload-cover { animation: payload 7.5s steps(28, end) infinite; }
+
+    @keyframes fadeline { 0%, 55% { opacity: 0; } 58%, 96% { opacity: 1; } 100% { opacity: 0; } }
+    .payload-line { animation: fadeline 7.5s linear infinite; }
+  </style>
+
+  <!-- Canvas -->
+  <rect x="0.5" y="0.5" width="1199" height="299" rx="14" fill="#fafafa" stroke="rgba(0,0,0,0.08)"/>
+
+  <!-- Dot grid, faded at the edges like the site background -->
+  <defs>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="rgba(0,0,0,0.07)"/>
+    </pattern>
+    <radialGradient id="dotfade" cx="50%" cy="42%" r="68%">
+      <stop offset="35%" stop-color="#fff"/>
+      <stop offset="100%" stop-color="#000"/>
+    </radialGradient>
+    <mask id="dotmask">
+      <rect width="1200" height="300" fill="url(#dotfade)"/>
+    </mask>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ff2d78" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#ff2d78" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="term-clip"><rect x="700" y="52" width="446" height="196" rx="16"/></clipPath>
+  </defs>
+  <rect width="1200" height="300" rx="14" fill="url(#dots)" mask="url(#dotmask)"/>
+  <ellipse cx="600" cy="30" rx="520" ry="240" fill="url(#glow)"/>
+
+  <!-- Wordmark: unblocking [API] -->
+  <text x="64" y="78" class="sans" font-size="26" font-weight="700" letter-spacing="-0.8" fill="#18181b">unblocking</text>
+  <rect x="196" y="56" width="52" height="28" rx="14" fill="#ff2d78"/>
+  <text x="222" y="75" class="sans" font-size="14.5" font-weight="700" letter-spacing="0.3" fill="#ffffff" text-anchor="middle">API</text>
+
+  <!-- Headline with the highlight band from the campaign -->
+  <rect x="58" y="106" width="298" height="52" rx="4" fill="rgba(255,45,120,0.15)" transform="skewX(-1)"/>
+  <text x="64" y="146" class="sans" font-size="46" font-weight="800" letter-spacing="-2.4" fill="#0a0a0a">One API call.</text>
+  <text x="64" y="198" class="sans" font-size="46" font-weight="800" letter-spacing="-2.4" fill="#0a0a0a">Clean HTML back.</text>
+
+  <!-- Sub + footer row -->
+  <text x="64" y="232" class="sans" font-size="17" fill="#5f6673">Browser rendering, country routing, retries — handled.</text>
+  <rect x="62" y="248" width="118" height="34" rx="17" fill="#ff2d78"/>
+  <text x="121" y="270" class="sans" font-size="14.5" font-weight="600" fill="#ffffff" text-anchor="middle">Start free →</text>
+  <text x="198" y="270" class="sans" font-size="13" font-weight="600" fill="rgba(10,10,10,0.4)">unblockingapi.com · 1,000 free requests</text>
+
+  <!-- Terminal -->
+  <rect x="700" y="52" width="446" height="196" rx="16" fill="#09090b"/>
+  <g clip-path="url(#term-clip)">
+    <!-- L1: request types out under a sliding cover -->
+    <text x="728" y="98" class="mono" font-size="15" fill="#71717a" xml:space="preserve">$ GET /unblock?url=…</text>
+    <rect class="type-cover" x="736" y="82" width="196" height="24" fill="#09090b"/>
+    <g class="caret-ride">
+      <rect class="caret" x="738" y="84" width="8" height="17" fill="#71717a"/>
+    </g>
+
+    <!-- L2: 403 Forbidden + rosa strike -->
+    <g class="denied">
+      <text x="728" y="136" class="mono" font-size="15" fill="#f87171">403 Forbidden</text>
+    </g>
+    <rect class="strike" x="724" y="129" width="130" height="2.6" rx="1.3" fill="#ff2d78"/>
+
+    <!-- L3: ✓ 200 OK -->
+    <g class="ok">
+      <text x="728" y="174" class="mono" font-size="15" fill="#34d399">✓</text>
+      <text x="748" y="174" class="mono" font-size="15" font-weight="500" fill="#ff2d78">200 OK</text>
+    </g>
+
+    <!-- L4: payload streams in -->
+    <g class="payload-line">
+      <text x="728" y="212" class="mono" font-size="15" xml:space="preserve"><tspan fill="#34d399">&lt;!doctype html&gt;</tspan><tspan fill="#52525b">&lt;html lang="en"&gt;…</tspan></text>
+      <rect class="payload-cover" x="728" y="196" width="400" height="24" fill="#09090b"/>
+    </g>
+  </g>
+</svg>
