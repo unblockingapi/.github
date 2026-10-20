@@ -2,10 +2,6 @@
   <img src="assets/hero.svg" alt="UnblockingAPI — One API call. Clean HTML back. A terminal shows GET /unblock returning 200 OK where a 403 used to be." width="100%">
 </a>
 
-[![@unblockingapi/mcp MCP server – quality and maintenance score on Glama](https://glama.ai/mcp/servers/unblockingapi/mcp/badges/card.svg)](https://glama.ai/mcp/servers/unblockingapi/mcp)
-
-[![@unblockingapi/mcp MCP server – quality and maintenance score on Glama](https://glama.ai/mcp/servers/unblockingapi/mcp/badges/score.svg)](https://glama.ai/mcp/servers/unblockingapi/mcp)
-
 **Send a public URL, get clean HTML back.** We handle browser rendering, country routing, retries and anti-bot handling — so you don't manage proxies, browser farms or credit calculators.
 
 🌐 [unblockingapi.com](https://unblockingapi.com) · 📖 [API docs](https://unblockingapi.com/docs) · 💰 [Pricing](https://unblockingapi.com/pricing) · 🔒 [Security](https://unblockingapi.com/security) · ✉️ [hello@unblockingapi.com](mailto:hello@unblockingapi.com)
@@ -58,3 +54,7 @@ Give your agent the same superpower: `npx -y @unblockingapi/mcp` connects Claude
 ## Elsewhere
 
 [X](https://x.com/unblockingapi) · [Reddit](https://www.reddit.com/user/UnblockingAPI/) · [Product Hunt](https://www.producthunt.com/products/unblockingapi)
+
+[![@unblockingapi/mcp MCP server – quality and maintenance score on Glama](https://glama.ai/mcp/servers/unblockingapi/mcp/badges/card.svg)](https://glama.ai/mcp/servers/unblockingapi/mcp)
+
+[![@unblockingapi/mcp MCP server – quality and maintenance score on Glama](https://glama.ai/mcp/servers/unblockingapi/mcp/badges/score.svg)](https://glama.ai/mcp/servers/unblockingapi/mcp)
